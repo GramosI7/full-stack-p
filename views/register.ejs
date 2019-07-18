@@ -1,0 +1,31 @@
+<main>
+  <% include ./partials/messages %>
+  <h1>Register an account</h1>
+  <form method="POST" action="/auth/register" name="register">
+    <input
+      value="<%= typeof username != 'undefined' ? username : '' %>"
+      placeholder="Username"
+      name="username"
+      type="text"
+    />
+    <input
+      value="<%= typeof email != 'undefined' ? email : '' %>"
+      placeholder="Email"
+      name="email"
+      type="text"
+    />
+    <input
+      value="<%= typeof password != 'undefined' ? password : '' %>"
+      placeholder="Password"
+      name="password"
+      type="password"
+    />
+    <input
+      value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
+      placeholder="Confirm your password"
+      name="password2"
+      type="password"
+    />
+    <button type="submit">Register</button>
+  </form>
+</main>

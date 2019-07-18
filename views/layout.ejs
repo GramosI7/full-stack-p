@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>OAuth Tutorials</title>
+    <link rel="stylesheet" href="./style/home.css" />
+    <style>
+      body {
+        font-family: arial;
+        margin: 0;
+      }
+      nav {
+        background: #ff5353;
+        padding: 20px 10px;
+      }
+      nav ul {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0;
+      }
+      nav li {
+        list-style-type: none;
+        display: inline-block;
+        margin: 0 10px 0 0;
+      }
+      nav a {
+        color: #fff;
+        font-size: 18px;
+        background: rgba(255, 255, 255, 0.2);
+        text-decoration: none;
+        padding: 10px;
+        display: block;
+      }
+      main,
+      header {
+        max-width: 960px;
+        margin: 30px auto;
+        padding: 0 10px;
+        color: #333;
+      }
+      .google-btn {
+        color: #fff;
+        text-decoration: none;
+        font-size: 18px;
+        padding: 10px;
+        background: #ff5353;
+      }
+      form {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+      label {
+        font-size: 18px;
+      }
+      input {
+        width: 50%;
+        border: none;
+        border-bottom: 3px solid #ff5353;
+        margin: 20px 0;
+        font-size: 20px;
+        outline: none;
+        padding: 5px 0px;
+      }
+      button {
+        margin-top: 15px;
+        color: #fff;
+        text-decoration: none;
+        font-size: 18px;
+        padding: 10px 20px;
+        background: #ff5353;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <% if(user) { %>
+        <li><a href="/auth/logout">Logout</a></li>
+        <% } else { %>
+        <li><a href="/auth/login">Login</a></li>
+        <% } %>
+        <li><a href="/">Homepage</a></li>
+        <li><a href="/profile">Profile</a></li>
+      </ul>
+    </nav>
+    <%- body %>
+  </body>
+</html>
