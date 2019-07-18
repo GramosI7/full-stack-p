@@ -12,13 +12,22 @@ router.get("/login/local", (req, res) => {
   res.render("login-local", { user: req.user });
 });
 
-// auth login local
-router.post("/login/local", passport.authenticate("local"), function(req, res) {
-  res.redirect("/profile");
-});
-
 router.get("/register", (req, res) => {
   res.render("register", { user: req.user });
+});
+
+// // auth login local
+// router.post("/login/local", passport.authenticate("local"), function(req, res) {
+//   res.redirect("/profile");
+// });
+
+// Login
+router.post("/login/local", (req, res, next) => {
+  passport.authenticate("local", {
+    successRedirect: "/profile",
+    failureRedirect: "/auth/login/local",
+    failureFlash: true
+  })(req, res, next);
 });
 
 // register
@@ -73,7 +82,13 @@ router.post("/register", (req, res) => {
 
             newUser
               .save()
-              .then(user => res.redirect("/auth/login/local"))
+              .then(user => {
+                req.flash(
+                  "success_msg",
+                  "You are now registered and can log in"
+                );
+                res.redirect("/auth/login/local");
+              })
               .catch(err => console.log(err));
           });
         });
