@@ -1,0 +1,19 @@
+<main>
+  <% include ./partials/messages %>
+  <h1>Add an project</h1>
+  <form method="POST" action="/project/add" name="add">
+    <input
+      value="<%= typeof title != 'undefined' ? title : '' %>"
+      placeholder="Title"
+      name="title"
+      type="text"
+    />
+    <textarea
+      value="<%= typeof description != 'undefined' ? description : '' %>"
+      placeholder="Description"
+      name="description"
+      type="text"
+    ></textarea>
+    <button class="myButton" type="submit">Add</button>
+  </form>
+</main>

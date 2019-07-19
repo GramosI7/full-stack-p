@@ -13,6 +13,10 @@
       crossorigin="anonymous"
     />
     <style>
+      a:hover {
+        text-decoration: none;
+        color: rgb(243, 243, 243);
+      }
       body {
         font-family: arial;
         margin: 0;
@@ -44,6 +48,7 @@
         max-width: 960px;
         margin: 30px auto;
         color: #333;
+        padding: 0px;
       }
       .google-btn {
         color: #fff;
@@ -71,6 +76,13 @@
         outline: none;
         padding: 5px 0px;
       }
+      textarea {
+        border: 3px solid #ff5353;
+        width: 50%;
+        outline: none;
+        font-size: 20px;
+        margin: 20px 0;
+      }
       .myButton {
         margin-top: 15px;
         color: #fff;
@@ -92,6 +104,9 @@
         <% } %>
         <li><a href="/">Homepage</a></li>
         <li><a href="/profile">Profile</a></li>
+        <% if(user) { %>
+        <li><a href="/project">Projets</a></li>
+        <% } %>
       </ul>
     </nav>
     <main>

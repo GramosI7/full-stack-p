@@ -1,0 +1,20 @@
+<header>
+  <h1>Vos projets</h1>
+</header>
+<main>
+  <% include ./partials/messages %> <% if(projects.length > 0){ %>
+  <p>Liste de tout vos projets</p>
+
+  <% projects.forEach(function(project) { %>
+  <div>
+    <h2><%= project.title %></h2>
+    <p><%= project.description %></p>
+    <a class="myBtn" href="<%= '/project/' + project.id %>"
+      ><button>See more</button></a
+    >
+  </div>
+  <% }); %> <% } else { %>
+  <p>No project here</p>
+  <% } %>
+  <span>Add an project <a href="/project/add">Add</a></span>
+</main>
