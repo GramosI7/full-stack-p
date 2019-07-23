@@ -78,8 +78,7 @@ router.post("/register", (req, res) => {
             // set password to hash
             newUser.password = hash;
             // save user
-            console.log(newUser);
-
+            // console.log(newUser);
             newUser
               .save()
               .then(user => {
